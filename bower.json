@@ -1,0 +1,24 @@
+{
+  "name": "ticket",
+  "description": "Ticket",
+  "main": "",
+  "authors": [
+    "Eray Aydın <eray@labkod.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/erayaydin/ticket",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "bootstrap-select": "~1.6.4",
+    "font-awesome": "~4.3.0"
+  }
+}
