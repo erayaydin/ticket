@@ -48,4 +48,8 @@ class User extends Model implements AuthenticatableContract,
     public function ownTickets(){
         return $this->hasMany('App\Ticket', 'agent_id');
     }
+
+    public function comments() {
+        return $this->hasMany('App\TicketComment');
+    }
 }
