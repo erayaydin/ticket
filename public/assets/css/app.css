@@ -9138,5 +9138,20 @@ a.list-group-item-danger.active:focus {
   height: 100% !important;
   opacity: 0;
 }
+.section-login {
+  margin-top: 100px;
+}
+.section-login .logo {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+.section-login .logo a {
+  color: #333333;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+.section-login .logo a span {
+  color: #999999;
+}
 
 /*# sourceMappingURL=app.css.map */
