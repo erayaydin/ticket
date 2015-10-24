@@ -17,5 +17,8 @@ Route::group(["middleware" => "guest"], function(){
 Route::group(["middleware" => "auth"], function(){
     Route::get("/", ["as" => "home.index", "uses" => "HomeController@index"]);
 
+    Route::get("account-settings", ["as" => "user.getAccount", "uses" => "UserController@getAccount"]);
+    Route::post("account-settings", ["as" => "user.postAccount", "uses" => "UserController@postAccount"]);
+
     Route::get('logout', ["as" => "user.logout", "uses" => 'Auth\AuthController@getLogout']);
 });

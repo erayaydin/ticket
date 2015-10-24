@@ -35,7 +35,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->getName() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">{{ trans("nav.account-settings") }}</a></li>
+                            <li><a href="{{ route('user.getAccount') }}">{{ trans("nav.account-settings") }}</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('user.logout')  }}">{{ trans("nav.logout") }}</a></li>
                         </ul>
@@ -44,4 +44,8 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="container-fluid">
+        @yield('container')
+    </div>
 @stop
