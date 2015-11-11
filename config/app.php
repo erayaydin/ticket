@@ -159,6 +159,7 @@ return [
          * 3rd Party Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Bican\Roles\RolesServiceProvider::class,
 
     ],
 
