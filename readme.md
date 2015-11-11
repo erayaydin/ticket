@@ -1,6 +1,21 @@
 # High Ticket System
 
-High Ticket System is lightweight and developer friendly ticket system. It also usable for production environment.
+High Ticket System is lightweight and developer friendly **PHP Laravel** ticket system. It also usable for production environment.
+
+## Dependencies
+
+- [laravel/framework 5.1.*](https://packagist.org/packages/laravel/framework)
+- [laravelcollective/html 5.1.*](https://packagist.org/packages/laravelcollective/html)
+- [bican/roles 2.1.*](https://packagist.org/packages/bican/roles)
+
+## DevDependencies (for Developing)
+
+- [fzaninotto/faker ~1.4](https://packagist.org/packages/fzaninotto/faker)
+- [mockery/mockery 0.9.*](https://packagist.org/packages/mockery/mockery)
+- [phpunit/phpunit ~4.0](https://packagist.org/packages/phpunit/phpunit)
+- [phpspec/phpspec ~2.1](https://packagist.org/packages/phpspec/phpspec)
+- [laracasts/generators ^1.1](https://packagist.org/packages/laracasts/generators)
+- [laracasts/testdummy ~2.0](https://packagist.org/packages/laracasts/testdummy)
 
 ## Under Construction
 
