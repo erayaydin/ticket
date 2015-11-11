@@ -25,4 +25,19 @@ class Ticket extends Model
     public function priority() {
         return $this->belongsTo('App\Priority');
     }
+
+    public function getStatus() {
+        if($this->status)
+            return $this->status->name;
+        else
+            return \App\Status::orderBy('id', 'ASC')->first()->name;
+    }
+
+    public function files() {
+        return $this->belongsToMany('App\File');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\TicketComment');
+    }
 }
