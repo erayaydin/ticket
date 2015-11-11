@@ -17,7 +17,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ route('ticket.index') }}">{{ trans('nav.tickets') }}</a></li>
+                    @permission('ticket.create')
                     <li><a href="{{ route('ticket.create') }}">{{ trans('nav.new-ticket') }}</a></li>
+                    @endpermission
+                    @permission('priority.index')
+                    <li><a href="{{ route('priority.index') }}">{{ trans('nav.priorities') }}</a></li>
+                    @endpermission
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
