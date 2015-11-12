@@ -13,7 +13,8 @@ elixir(function(mix) {
         .scripts([
             'jquery/dist/jquery.min.js',
             'bootstrap/dist/js/bootstrap.min.js',
-            'bootstrap-select/dist/js/bootstrap-select.min.js'
+            'bootstrap-select/dist/js/bootstrap-select.min.js',
+            'sweetalert/dist/sweetalert.min.js'
         ], 'public/assets/js/vendor.js', bowerDir)
         .copy('resources/assets/js/app.js', 'public/assets/js/app.js')
         .copy(bowerDir + 'font-awesome/fonts', 'public/assets/fonts');

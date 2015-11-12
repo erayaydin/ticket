@@ -25,6 +25,7 @@ High Ticket System is lightweight and developer friendly **PHP Laravel** ticket 
   - [x] Password Reset
   - [x] Account Settings
   - [x] Logout
+  - [ ] Notifications
 - Tickets
   - [x] Create Ticket
     - [x] Upload multiple file

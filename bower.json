@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap-select": "~1.6.4",
     "font-awesome": "~4.3.0",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "sweetalert": "~1.1.3"
   }
 }
