@@ -33,8 +33,8 @@ High Ticket System is lightweight and developer friendly **PHP Laravel** ticket 
     - [x] Comments
     - [x] New Comments
     - [x] Change ticket status (permission:ticket.status.edit)
-  - [ ] Edit Ticket (permission:ticket.edit)
-  - [ ] Delete Ticket (permission:ticket.delete)
+  - [x] Edit Ticket (permission:ticket.edit)
+  - [x] Delete Ticket (permission:ticket.delete)
 - Priorities
   - [x] Index Priority
   - [x] Create Priority

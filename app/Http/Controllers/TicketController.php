@@ -13,6 +13,7 @@ use App\Http\Requests\NewCommentRequest;
 use App\File;
 use Validator;
 use App\Http\Requests\SetStatusRequest;
+use App\Http\Requests\EditTicketRequest;
 
 class TicketController extends Controller
 {
@@ -174,35 +175,44 @@ class TicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ticket $ticket)
     {
-        //
+        return view('ticket.edit', ["ticket" => $ticket]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\EditTicketRequest  $request
+     * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditTicketRequest $request, Ticket $ticket)
     {
-        //
+        $ticket->subject = $request->get("subject");
+        $ticket->content = $request->get("content");
+        $ticket->department_id = $request->get("department_id");
+        $ticket->priority_id = $request->get("priority_id");
+        $ticket->user_id = auth()->user()->id;
+        $ticket->save();
+
+        return redirect()->route('ticket.edit', $ticket->id)->with('success', trans("ticket.edited"));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+
+        return redirect()->route('ticket.index')->with('success', trans('ticket.deleted'));
     }
 
     /**

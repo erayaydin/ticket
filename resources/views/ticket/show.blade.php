@@ -3,7 +3,12 @@
 @section("container")
     <div class="row">
         <div class="col-md-6">
-
+            @permission("ticket.edit")
+                <a href="{{ route('ticket.edit', $ticket->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i> {{ trans('ticket.edit') }}</a>
+            @endpermission
+            @permission("ticket.delete")
+                <a href="{{ route('ticket.destroy', $ticket->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i> {{ trans('ticket.delete') }}</a>
+            @endpermission
         </div>
         @permission("ticket.status.edit")
         <div class="col-md-6">

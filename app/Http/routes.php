@@ -31,6 +31,9 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("ticket/{ticket}/file/{file}", ["as" => "ticket.file", "uses" => "TicketController@getFile"]);
     Route::post("ticket/{ticket}/comment", ["middleware" => "permission:comment.create", "as" => "ticket.comment", "uses" => "TicketController@comment"]);
     Route::post("ticket/{ticket}/setStatus", ["middleware" => "permission:ticket.status.edit", "as" => "ticket.setStatus", "uses" => "TicketController@setStatus"]);
+    Route::get("ticket/{ticket}/edit", ["middleware" => "permission:ticket.edit", "as" => "ticket.edit", "uses" => "TicketController@edit"]);
+    Route::put("ticket/{ticket}", ["middleware" => "permission:ticket.edit", "as" => "ticket.update", "uses" => "TicketController@update"]);
+    Route::get("ticket/{ticket}/delete", ["middleware" => "permission:ticket.delete", "as" => "ticket.destroy", "uses" => "TicketController@destroy"]);
 
     Route::get("priority", ["middleware" => "permission:priority.index", "as" => "priority.index", "uses" => "PriorityController@index"]);
     Route::get("priority/create", ["middleware" => "permission:priority.create", "as" => "priority.create", "uses" => "PriorityController@create"]);

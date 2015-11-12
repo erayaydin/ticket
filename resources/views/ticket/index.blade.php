@@ -40,6 +40,12 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('ticket.show', $ticket->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> {{ trans('ticket.show') }}</a>
+                                    @permission("ticket.edit")
+                                    <a href="{{ route('ticket.edit', $ticket->id) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i> {{ trans('ticket.edit') }}</a>
+                                    @endpermission
+                                    @permission("ticket.delete")
+                                    <a href="{{ route('ticket.destroy', $ticket->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> {{ trans('ticket.delete') }}</a>
+                                    @endpermission
                                 </td>
                             </tr>
                             @endforeach

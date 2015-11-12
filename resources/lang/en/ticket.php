@@ -18,4 +18,8 @@ return [
     'new-comment' => "New Comment",
     'setStatus' => "Set Status",
     'statusChanged' => "Status successfuly changed!",
+    'edit' => "Edit Ticket",
+    "delete" => "Delete Ticket",
+    'edited' => "Ticket successfuly edited!",
+    'deleted' => "Ticket successfuly deleted!",
 ];
