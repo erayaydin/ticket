@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Priority;
+use App\Http\Requests\NewPriorityRequest;
 
 class PriorityController extends Controller
 {
@@ -27,18 +28,23 @@ class PriorityController extends Controller
      */
     public function create()
     {
-        //
+        return view("priority.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\NewPriorityRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewPriorityRequest $request)
     {
-        //
+        $priority = new Priority;
+        $priority->name = $request->get('name');
+        $priority->color = $request->get('color');
+        $priority->save();
+
+        return redirect()->route('priority.index')->with('success', trans('priority.created'));
     }
 
     /**
@@ -53,36 +59,42 @@ class PriorityController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified priority.
      *
-     * @param  int  $id
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Priority $priority)
     {
-        //
+        return view('priority.edit', ['priority' => $priority]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewPriorityRequest $request, Priority $priority)
     {
-        //
+        $priority->name = $request->get('name');
+        $priority->color = $request->get('color');
+        $priority->save();
+
+        return redirect()->route('priority.edit', $priority->id)->with('success', trans('priority.edited'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Priority $priority)
     {
-        //
+        $priority->delete();
+
+        return redirect()->route('priority.index')->with('success', trans('priority.deleted'));
     }
 }

@@ -2,6 +2,7 @@
 
 Route::model('ticket', 'App\Ticket');
 Route::model('file', 'App\File');
+Route::model('priority', 'App\Priority');
 
 Route::group(["middleware" => "guest"], function(){
     Route::get("login", ["as" => "user.login", "uses" => 'Auth\AuthController@getLogin']);
@@ -29,9 +30,9 @@ Route::group(["middleware" => "auth"], function(){
 
     Route::get("priority", ["middleware" => "permission:priority.index", "as" => "priority.index", "uses" => "PriorityController@index"]);
     Route::get("priority/create", ["middleware" => "permission:priority.create", "as" => "priority.create", "uses" => "PriorityController@create"]);
-    Route::post("priority", ["middleware" => "permission:priority.create", "as" => "priority.create", "uses" => "PriorityController@store"]);
+    Route::post("priority", ["middleware" => "permission:priority.create", "as" => "priority.store", "uses" => "PriorityController@store"]);
     Route::get("priority/{priority}/edit", ["middleware" => "permission:priority.edit", "as" => "priority.edit", "uses" => "PriorityController@edit"]);
-    Route::put("priority/{priority}", ["middleware" => "permission:priority.edit", "as" => "priority.edit", "uses" => "PriorityController@update"]);
+    Route::put("priority/{priority}", ["middleware" => "permission:priority.edit", "as" => "priority.update", "uses" => "PriorityController@update"]);
     Route::get("priority/{priority}/delete", ["middleware" => "permission:priority.delete", "as" => "priority.delete", "uses" => "PriorityController@destroy"]);
 
     Route::get("account-settings", ["as" => "user.getAccount", "uses" => "UserController@getAccount"]);
