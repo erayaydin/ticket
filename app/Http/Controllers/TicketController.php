@@ -102,7 +102,9 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        return view("ticket.show", ["ticket" => $ticket]);
+        if($ticket->user == auth()->user() || $ticket->agent == auth()->user() || auth()->user()->is('admin'))
+            return view("ticket.show", ["ticket" => $ticket]);
+        return redirect()->route('ticket.index');
     }
 
     /**
