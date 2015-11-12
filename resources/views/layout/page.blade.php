@@ -26,6 +26,9 @@
                     @permission('status.index')
                     <li><a href="{{ route('status.index') }}">{{ trans('nav.statuses') }}</a></li>
                     @endpermission
+                    @permission('department.index')
+                    <li><a href="{{ route('department.index') }}">{{ trans('nav.departments') }}</a></li>
+                    @endpermission
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

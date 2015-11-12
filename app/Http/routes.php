@@ -4,6 +4,7 @@ Route::model('ticket', 'App\Ticket');
 Route::model('file', 'App\File');
 Route::model('priority', 'App\Priority');
 Route::model('status', 'App\Status');
+Route::model('department', 'App\Department');
 
 Route::group(["middleware" => "guest"], function(){
     Route::get("login", ["as" => "user.login", "uses" => 'Auth\AuthController@getLogin']);
@@ -42,6 +43,13 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("status/{status}/edit", ["middleware" => "permission:status.edit", "as" => "status.edit", "uses" => "StatusController@edit"]);
     Route::put("status/{status}", ["middleware" => "permission:status.edit", "as" => "status.update", "uses" => "StatusController@update"]);
     Route::get("status/{status}/delete", ["middleware" => "permission:status.delete", "as" => "status.delete", "uses" => "StatusController@destroy"]);
+
+    Route::get("department", ["middleware" => "permission:department.index", "as" => "department.index", "uses" => "DepartmentController@index"]);
+    Route::get("department/create", ["middleware" => "permission:department.create", "as" => "department.create", "uses" => "DepartmentController@create"]);
+    Route::post("department", ["middleware" => "permission:department.create", "as" => "department.store", "uses" => "DepartmentController@store"]);
+    Route::get("department/{department}/edit", ["middleware" => "permission:department.edit", "as" => "department.edit", "uses" => "DepartmentController@edit"]);
+    Route::put("department/{department}", ["middleware" => "permission:department.edit", "as" => "department.update", "uses" => "DepartmentController@update"]);
+    Route::get("department/{department}/delete", ["middleware" => "permission:department.delete", "as" => "department.delete", "uses" => "DepartmentController@destroy"]);
 
     Route::get("account-settings", ["as" => "user.getAccount", "uses" => "UserController@getAccount"]);
     Route::post("account-settings", ["as" => "user.postAccount", "uses" => "UserController@postAccount"]);

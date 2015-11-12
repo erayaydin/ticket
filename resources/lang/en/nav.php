@@ -8,4 +8,5 @@ return [
     'new-ticket' => "New Ticket",
     'priorities' => "Priorities",
     'statuses' => "Statuses",
+    'departments' => "Departments",
 ];
