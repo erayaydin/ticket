@@ -29,6 +29,9 @@
                     @permission('department.index')
                     <li><a href="{{ route('department.index') }}">{{ trans('nav.departments') }}</a></li>
                     @endpermission
+                    @permission('user.index')
+                    <li><a href="{{ route('user.index') }}">{{ trans('nav.users') }}</a></li>
+                    @endpermission
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

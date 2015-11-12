@@ -51,10 +51,10 @@ High Ticket System is lightweight and developer friendly **PHP Laravel** ticket 
   - [x] Edit Department
   - [x] Delete Department
 - Users
-  - [ ] Index User
-  - [ ] Create User
-  - [ ] Edit User
-  - [ ] Delete User
+  - [x] Index User
+  - [x] Create User
+  - [x] Edit User
+  - [x] Delete User
 
 ## Developer Guide
 

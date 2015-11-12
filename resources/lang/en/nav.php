@@ -9,4 +9,5 @@ return [
     'priorities' => "Priorities",
     'statuses' => "Statuses",
     'departments' => "Departments",
+    'users' => "Users",
 ];

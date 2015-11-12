@@ -166,6 +166,12 @@ class RoleTableSeeder extends Seeder
             'description' => "List departments"
         ]);
 
+        $indexUserPermission = Permission::create([
+            'name' => "List users",
+            'slug' => 'user.index',
+            'description' => "List users"
+        ]);
+
         $admin->attachPermission($editTicketPermission);
         $admin->attachPermission($deleteTicketPermission);
         $admin->attachPermission($newUserPermission);
@@ -187,6 +193,7 @@ class RoleTableSeeder extends Seeder
         $admin->attachPermission($indexPriorityPermission);
         $admin->attachPermission($indexStatusPermission);
         $admin->attachPermission($indexDepartmentPermission);
+        $admin->attachPermission($indexUserPermission);
 
         $agent->attachPermission($changeTicketStatusPermission);
         $agent->attachPermission($newCommentPermission);
