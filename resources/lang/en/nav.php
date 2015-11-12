@@ -7,4 +7,5 @@ return [
     'tickets' => "Tickets",
     'new-ticket' => "New Ticket",
     'priorities' => "Priorities",
+    'statuses' => "Statuses",
 ];

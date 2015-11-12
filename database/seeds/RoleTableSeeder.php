@@ -154,6 +154,12 @@ class RoleTableSeeder extends Seeder
             'description' => "List priorities"
         ]);
 
+        $indexStatusPermission = Permission::create([
+            'name' => "List statuses",
+            'slug' => "status.index",
+            'description' => "List statuses"
+        ]);
+
         $admin->attachPermission($editTicketPermission);
         $admin->attachPermission($deleteTicketPermission);
         $admin->attachPermission($newUserPermission);
@@ -173,6 +179,7 @@ class RoleTableSeeder extends Seeder
         $admin->attachPermission($deleteCommentPermission);
         $admin->attachPermission($changeTicketStatusPermission);
         $admin->attachPermission($indexPriorityPermission);
+        $admin->attachPermission($indexStatusPermission);
 
         $agent->attachPermission($changeTicketStatusPermission);
         $agent->attachPermission($newCommentPermission);

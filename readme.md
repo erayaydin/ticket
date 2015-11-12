@@ -41,10 +41,10 @@ High Ticket System is lightweight and developer friendly **PHP Laravel** ticket 
   - [x] Edit Priority
   - [x] Delete Priority
 - Statuses
-  - [ ] Index Status
-  - [ ] Create Status
-  - [ ] Edit Status
-  - [ ] Delete Status
+  - [x] Index Status
+  - [x] Create Status
+  - [x] Edit Status
+  - [x] Delete Status
 - Departments
   - [ ] Index Department
   - [ ] Create Department
