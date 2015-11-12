@@ -12,6 +12,7 @@ use App\Http\Requests\NewTicketRequest;
 use App\Http\Requests\NewCommentRequest;
 use App\File;
 use Validator;
+use App\Http\Requests\SetStatusRequest;
 
 class TicketController extends Controller
 {
@@ -22,7 +23,14 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view("ticket.index", ["tickets" => auth()->user()->tickets()->orderBy("created_at", "DESC")->paginate(20)]);
+        if(auth()->user()->is('agent'))
+            $tickets = auth()->user()->ownTickets()->orderBy('created_at', 'DESC')->paginate(20);
+        elseif(auth()->user()->is('admin'))
+            $tickets = Ticket::orderBy('created_at', 'DESC')->paginate(20);
+        else
+            $tickets = auth()->user()->tickets()->orderBy("created_at", "DESC")->paginate(20);
+
+        return view("ticket.index", ["tickets" => $tickets]);
 
     }
 
@@ -195,5 +203,19 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Set status the specified ticket
+     *
+     * @param \App\Http\Requests\SetStatusRequest $request
+     * @param \App\Ticket $ticket
+     */
+    public function setStatus(SetStatusRequest $request, Ticket $ticket)
+    {
+        $ticket->status_id = $request->get('status');
+        $ticket->save();
+
+        return redirect()->route('ticket.show', $ticket->id)->with('success', trans('ticket.statusChanged'));
     }
 }

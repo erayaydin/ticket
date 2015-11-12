@@ -2,6 +2,20 @@
 
 @section("container")
     <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        @permission("ticket.status.edit")
+        <div class="col-md-6">
+            {!! Form::open(['route' => ['ticket.setStatus', $ticket->id], "class" => "text-right form-inline"]) !!}
+                {!! Form::select("status", \App\Status::lists('name', 'id'), old('status') ? old('status') : $ticket->status_id, ["class" => "form-control"]) !!}
+                {!! Form::submit(trans("ticket.setStatus"), ["class" => "btn btn-primary"]) !!}
+            {!! Form::close() !!}
+        </div>
+        @endpermission
+    </div>
+    <br>
+    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">

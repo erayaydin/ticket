@@ -16,4 +16,6 @@ return [
     'status' => "Status",
     'comments' => "Comments",
     'new-comment' => "New Comment",
+    'setStatus' => "Set Status",
+    'statusChanged' => "Status successfuly changed!",
 ];
