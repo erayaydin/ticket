@@ -19,5 +19,15 @@
 @yield("body")
 <script src="{!! asset('assets/js/vendor.js') !!}"></script>
 <script src="{!! asset('assets/js/app.js') !!}"></script>
+@if(session("success"))
+<script>
+    swal({
+        title: "{{ trans('keywords.success') }}",
+        text: "{{ session('success') }}",
+        type: "success",
+        confirmButtonText: "{{ trans('keywords.ok') }}"
+    });
+</script>
+@endif
 </body>
 </html>

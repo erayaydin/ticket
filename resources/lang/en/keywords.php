@@ -1,5 +1,7 @@
 <?php
 
 return [
-    "update" => "Update"
+    "update" => "Update",
+    'success' => "Success!",
+    'ok' => "Ok"
 ];
